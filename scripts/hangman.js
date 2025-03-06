@@ -366,6 +366,7 @@ const buttons = document.querySelector('.buttons').getElementsByTagName('button'
 const themes = document.querySelector('.themes').getElementsByTagName('button');
 const letter = document.querySelector('.letter');
 const image = document.querySelector('img');
+const restart_button = document.querySelector('.restart_button').getElementsByTagName('button');
 theme_now = ""
 function start() {
     function choose_theme(text) {
@@ -387,7 +388,7 @@ function start() {
     }
     for (let i = 0; i < themes.length; i++) {
         if (themes[i].tagName === 'BUTTON') {
-            buttons[i].style.display = "block"
+            themes[i].style.display = "block"
             themes[i].addEventListener("click", () => choose_theme(themes[i]));
         }
     }
@@ -441,6 +442,7 @@ function game() {
                     buttons[i].classList.remove("correct");
                     buttons[i].classList.add("restart");
                 }
+                restart.button[0]
             }
         }
         start()
