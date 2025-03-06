@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Great+Vibes&family=Parkinsans:wght@300..800&display=swap');
+
+
+html {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+p, li {
+font-family: Parkinsans;
+font-size: 200%;
+line-height: 2;
+letter-spacing: 1px;
+letter-spacing: 20px;
+}
+  
+html {
+  background-color: #00539F;
+}
+
+body {
+  width: 720px;
+  margin: 0 auto;
+  background-color: #FF9500;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+  text-align: center
+}
+
+h1 {
+font-family: Parkinsans;
+font-size: 200%;
+line-height: 2;
+letter-spacing: 1px;
+text-align: center;
+margin: 0;
+padding: 20px 0;
+color: #00539F;
+text-shadow: 3px 3px 1px black;
+text-align: center
+}
+
+h2 {
+font-family: Parkinsans;
+font-size: 100%;
+line-height: 2;
+letter-spacing: 5px;
+text-align: center;
+margin: 5;
+padding: 40 40;
+color: #178800;
+text-shadow: 2px 2px 1px black;
+text-align: center
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap; /* Разрешаем перенос строк */
+  justify-content: center; /* Выравнивание элементов по центру */
+  gap: 10px; /* Отступ между кнопками */
+  margin: 20px auto; /* Добавляем отступы */
+}
+
+button {
+  flex: 0 0 calc(100% / 11 - 10px); /* Каждая кнопка занимает 1/11 часть ширины минус отступ */
+  font-family: Parkinsans;
+  font-size: 130%;
+  height: 50px;
+  background-color: #dce927;
+  border-color: black;
+  border-width: 5px;
+  color: #178800;
+  text-shadow: 2px 1px 1px black;
+}
+
+.themes button {
+  font-family: Parkinsans;
+  font-size: 130%;
+  height: 50px;
+  width: 300px;
+  background-color: #dce927;
+  border-color: black;
+  border-width: 5px;
+  color: #178800;
+  text-shadow: 2px 1px 1px black;
+  
+}
+
+button.hidden {
+  font-family: Parkinsans;
+  font-size: 130%;
+  height: 50px;
+  width: 50px;
+  background-color: #dce927;
+  border-color: black;
+  border-width: 5px;
+  color: #178800;
+  text-shadow: 2px 1px 1px black;
+  display: none;
+  
+}
+
+
+button.correct {
+  font-family: Parkinsans;
+  font-size: 130%;
+  height: 50px;
+  width: 50px;
+  background-color: #4ff325;
+  border-color: black;
+  border-width: 5px;
+  color: #f700ff;
+  text-shadow: 2px 1px 1px black;
+  
+}
+
+button.incorrect {
+  font-family: Parkinsans;
+  font-size: 130%;
+  height: 50px;
+  width: 50px;
+  background-color: #f01c1c;
+  border-color: black;
+  border-width: 5px;
+  color: #178800;
+  text-shadow: 2px 1px 1px black;
+}
+
+button.restart {
+  font-family: Parkinsans;
+  font-size: 130%;
+  height: 50px;
+  width: 50px;
+  background-color: #dce927;
+  border-color: black;
+  border-width: 5px;
+  color: #178800;
+  text-shadow: 2px 1px 1px black;
+  pointer-events: none;
+}
+
+.restart {
+  font-family: Parkinsans;
+  font-size: 130%;
+  height: 50px;
+  width: 50px;
+  background-color: #dce927;
+  border-color: black;
+  border-width: 5px;
+  color: #178800;
+  text-shadow: 2px 1px 1px black;
+}
