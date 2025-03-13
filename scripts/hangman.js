@@ -366,8 +366,7 @@ const buttons = document.querySelector('.buttons').getElementsByTagName('button'
 const themes = document.querySelector('.themes').getElementsByTagName('button');
 const letter = document.querySelector('.letter');
 const image = document.querySelector('img');
-const restart_button = document.querySelector('.restart_button').getElementsByTagName('button');
-theme_now = ""
+const restart_button = document.querySelector('.restart_button')
 function start() {
     function choose_theme(text) {
         if (text.textContent === "Случайная тема") {
@@ -389,9 +388,12 @@ function start() {
     for (let i = 0; i < themes.length; i++) {
         if (themes[i].tagName === 'BUTTON') {
             themes[i].style.display = "block"
+            themes[i].style.display = "center"
             themes[i].addEventListener("click", () => choose_theme(themes[i]));
         }
     }
+    theme_now = ""
+    restart_button.style.display = "none";
     image.style.display = "none";
     letter.textContent = '';
 }
@@ -431,21 +433,23 @@ function game() {
         console.log('Проигрыш')
         restart()
     }
-    function restart(){
+    function get_restart() {
+        start()
+    }
+    function restart() {
         for (let i = 0; i < buttons.length; i++) {
             if (buttons[i].tagName === 'BUTTON') {
                 if (buttons[i].classList.value === "incorrect") {
                     buttons[i].classList.remove("incorrect");
-                    buttons[i].classList.add("restart");
                 }
                 if (buttons[i].classList.value === "correct") {
                     buttons[i].classList.remove("correct");
-                    buttons[i].classList.add("restart");
                 }
-                restart.button[0]
+            buttons[i].style.display = "none"
             }
         }
-        start()
+        restart_button.style.display = "block";
+        restart_button.addEventListener("click", get_restart);
     }
     for (let i = 0; i < buttons.length; i++) {
         if (buttons[i].tagName === 'BUTTON') {
@@ -473,6 +477,7 @@ function game() {
 
     for (let i = 0; i < buttons.length; i++) {
         if (buttons[i].tagName === 'BUTTON') {
+            buttons[i].removeEventListener("click", () => checkGuess(text))
             buttons[i].addEventListener("click", () => checkGuess(buttons[i]));
         }
     }
