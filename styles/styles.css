@@ -21,7 +21,7 @@ html {
 body {
   width: 720px;
   margin: 0 auto;
-  background-color: #FF9500;
+  background-color: #ffd8a4;
   padding: 0 20px 20px 20px;
   border: 5px solid black;
   text-align: center
@@ -41,16 +41,17 @@ text-align: center
 }
 
 h2 {
-font-family: Parkinsans;
-font-size: 100%;
-line-height: 2;
-letter-spacing: 5px;
-text-align: center;
-margin: 5;
-padding: 40 40;
-color: #178800;
-text-shadow: 2px 2px 1px black;
-text-align: center
+  font-family: Parkinsans;
+  font-size: 100%;
+  line-height: 2;
+  letter-spacing: 5px;
+  text-align: center;
+  margin: 5;
+  padding: 40 40;
+  color: #178800;
+  text-shadow: 2px 2px 1px black;
+  text-align: center;
+  font-weight: 400
 }
 
 img {
@@ -58,6 +59,112 @@ img {
   margin: 0 auto;
 }
 
+/*
+  https://developer.mozilla.org/en/docs/Web/CSS/box-shadow
+  box-shadow: [inset?] [top] [left] [blur] [size] [color];
+
+  Tips:
+    - We're setting all the blurs to 0 since we want a solid fill.
+    - Add the inset keyword so the box-shadow is on the inside of the element
+    - Animating the inset shadow on hover looks like the element is filling in from whatever side you specify ([top] and [left] accept negative values to become [bottom] and [right])
+    - Multiple shadows can be stacked
+    - If you're animating multiple shadows, be sure to keep the same number of shadows on hover/focus as non-hover/focus (even if you have to create a transparent shadow) so the animation is smooth. Otherwise, you'll get something choppy.
+*/
+.fill:hover,
+.fill:focus {
+  box-shadow: inset 0 0 0 2em var(--hover);
+}
+
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1s;
+          animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+.close:hover,
+.close:focus {
+  box-shadow: inset -3.5em 0 0 0 var(--hover), inset 3.5em 0 0 0 var(--hover);
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+.up:hover,
+.up:focus {
+  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+}
+
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+
+.offset {
+  box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
+}
+.offset:hover, .offset:focus {
+  box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
+}
+
+.fill {
+  --color: #a972cb;
+  --hover: #cb72aa;
+}
+
+.pulse {
+  --color: #ef6eae;
+  --hover: #ef8f6e;
+}
+
+.close {
+  --color: #ff7f82;
+  --hover: #ffdc7f;
+}
+
+.raise {
+  --color: #C6C013;
+  --hover: #ff00dd;
+}
+
+.up {
+  --color: #e4cb58;
+  --hover: #94e458;
+}
+
+.slide {
+  --color: #8fc866;
+  --hover: #66c887;
+}
+
+.offset {
+  --color: #19bc8b;
+  --hover: #1973bc;
+}
+
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+code {
+  color: #ff00ff;
+  font: inherit;
+}
 
 .buttons {
   display: flex;
@@ -72,11 +179,20 @@ button {
   font-family: Parkinsans;
   font-size: 130%;
   height: 50px;
-  background-color: #dce927;
+  width: 50px;
+  background-color: #f700ff;
   border-color: black;
   border-width: 5px;
-  color: #178800;
+  /* color: #178800; */
   text-shadow: 2px 1px 1px black;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 1em;
+  color: var(--color);
+  transition: 0.25s;
 }
 
 .themes button {
@@ -91,7 +207,10 @@ button {
   text-shadow: 2px 1px 1px black;
 }
 
-button.hidden {
+button.correct {
+  background-color: #4ff325;
+  border-color: black;
+  flex: 0 0 calc(100% / 11 - 10px); /* Каждая кнопка занимает 1/11 часть ширины минус отступ */
   font-family: Parkinsans;
   font-size: 130%;
   height: 50px;
@@ -99,39 +218,21 @@ button.hidden {
   background-color: #dce927;
   border-color: black;
   border-width: 5px;
-  color: #178800;
+  /* color: #178800; */
   text-shadow: 2px 1px 1px black;
-  display: none;
-  
-}
-
-
-button.correct {
-  font-family: Parkinsans;
-  font-size: 130%;
-  height: 50px;
-  width: 50px;
-  background-color: #4ff325;
-  border-color: black;
-  border-width: 5px;
-  color: #f700ff;
-  text-shadow: 2px 1px 1px black;
-  
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 1em;
+  color: #034732;
+  transition: 0.25s;
 }
 
 button.incorrect {
-  font-family: Parkinsans;
-  font-size: 130%;
-  height: 50px;
-  width: 50px;
-  background-color: #f01c1c;
-  border-color: black;
-  border-width: 5px;
-  color: #178800;
-  text-shadow: 2px 1px 1px black;
-}
-
-button.restart {
+  background-color: #EF8A17;
+  flex: 0 0 calc(100% / 11 - 10px); /* Каждая кнопка занимает 1/11 часть ширины минус отступ */
   font-family: Parkinsans;
   font-size: 130%;
   height: 50px;
@@ -139,9 +240,16 @@ button.restart {
   background-color: #dce927;
   border-color: black;
   border-width: 5px;
-  color: #178800;
+  /* color: #178800; */
   text-shadow: 2px 1px 1px black;
-  pointer-events: none;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 1em;
+  color: #ff0000;
+  transition: 0.25s;
 }
 
 .restart {

@@ -427,14 +427,16 @@ function game() {
     }
     function win() {
         console.log('Победа')
+        restart_button.textContent = "Вы выиграли! Перезагрузите страницу"
         restart()
     }
     function lose() {
         console.log('Проигрыш')
+        restart_button.textContent = "Вы проиграли. Перезагрузите страницу"
         restart()
     }
     function get_restart() {
-        start()
+        location.reload()
     }
     function restart() {
         for (let i = 0; i < buttons.length; i++) {
