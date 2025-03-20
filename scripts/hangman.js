@@ -396,10 +396,16 @@ function start() {
     }
     theme_now = ""
     letter.textContent = '';
+    restart_buttons.style.display = "none";
+    word_display.style.display = "none";
 }
 
 function game() {
     function checkGuess(text) {
+        if (letters.includes(text.textContent)) {
+            return
+        }
+        letters += [text.textContent]
         nado = 0
         letter.textContent = '';
         for (let i = 0; i < word.length; i++) {
@@ -426,27 +432,21 @@ function game() {
         }
     }
     function win() {
-        console.log('Победа')
-        restart_button[0].textContent = "Вы выиграли! Перезагрузите страницу"
+        restart_button[0].textContent = "Вы выиграли!"
         restart()
     }
     function lose() {
-        console.log('Проигрыш')
-        restart_button[0].textContent = "Вы проиграли. Перезагрузите страницу"
+        restart_button[0].textContent = "Вы проиграли"
         restart()
     }
     function get_restart() {
-        location.reload()
+        start()
     }
     function restart() {
         for (let i = 0; i < buttons.length; i++) {
             if (buttons[i].tagName === 'BUTTON') {
-                if (buttons[i].classList.value === "incorrect") {
-                    buttons[i].classList.remove("incorrect");
-                }
-                if (buttons[i].classList.value === "correct") {
-                    buttons[i].classList.remove("correct");
-                }
+                buttons[i].classList.remove("incorrect");
+                buttons[i].classList.remove("correct");
             buttons[i].style.display = "none"
             }
         }
@@ -471,6 +471,7 @@ function game() {
     column_of_error = 0
     nado = 0
     letter_1 = []
+    letters = []
     word_display.style.display = 'block'
 
     for (let i = 0; i < word.length; i++) {
@@ -480,7 +481,6 @@ function game() {
 
     for (let i = 0; i < buttons.length; i++) {
         if (buttons[i].tagName === 'BUTTON') {
-            buttons[i].removeEventListener("click", () => checkGuess(text))
             buttons[i].addEventListener("click", () => checkGuess(buttons[i]));
         }
     }
