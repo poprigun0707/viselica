@@ -11,11 +11,11 @@
         <div class="hangman-box">
             <h1>Hangman Game</h1>
             <div class="themes">
-                <button type="submit">Еда</button>
-                <button type="submit">Спорт</button>
-                <button type="submit">Страны</button>
-                <button type="submit">Профессии</button>
-                <button type="submit">Случайная тема</button>
+                <button class="pulse" type="submit">Еда</button>
+                <button class="pulse" type="submit">Спорт</button>
+                <button class="pulse" type="submit">Страны</button>
+                <button class="pulse" type="submit">Профессии</button>
+                <button class="pulse" type="submit">Случайная тема</button>
             </div>
         </div>
         <div class="game-box">
@@ -61,7 +61,9 @@
                     <button class="raise" type="submit">ю</button>
 
             </div>
-            <button class="restart_button" type="submit" hidden=True>Перезапустить игру</button>
+            <div class="restart">
+                <button class="slide" type="submit" display="none">Перезапустить игру</button>
+            </div>
         </div>
     </div>
     <script src="scripts/hangman.js"></script>

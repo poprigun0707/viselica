@@ -27,6 +27,10 @@ body {
   text-align: center
 }
 
+.word-display {
+  display: none;
+}
+
 h1 {
 font-family: Parkinsans;
 font-size: 200%;
@@ -111,7 +115,7 @@ img {
 
 .slide:hover,
 .slide:focus {
-  box-shadow: inset 6.5em 0 0 0 var(--hover);
+  box-shadow: inset 300px 0 0 0 var(--hover);
 }
 
 .offset {
@@ -127,8 +131,8 @@ img {
 }
 
 .pulse {
-  --color: #ef6eae;
-  --hover: #ef8f6e;
+  --color: #f700ff;
+  --hover: #f700ff;
 }
 
 .close {
@@ -196,15 +200,24 @@ button {
 }
 
 .themes button {
+  flex: 0 0 calc(100% / 11 - 10px); /* Каждая кнопка занимает 1/11 часть ширины минус отступ */
   font-family: Parkinsans;
   font-size: 130%;
   height: 50px;
   width: 300px;
-  background-color: #dce927;
+  background-color: #f700ff;
   border-color: black;
   border-width: 5px;
-  color: #178800;
+  /* color: #178800; */
   text-shadow: 2px 1px 1px black;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 1em;
+  color: var(--color);
+  transition: 0.25s;
 }
 
 button.correct {
@@ -253,13 +266,27 @@ button.incorrect {
 }
 
 .restart {
+  display: none;
+}
+
+.restart button {
+  flex: 0 0 calc(100% / 11 - 10px); /* Каждая кнопка занимает 1/11 часть ширины минус отступ */
   font-family: Parkinsans;
   font-size: 130%;
-  height: 50px;
-  width: 50px;
-  background-color: #dce927;
+  height: 100px;
+  width: 300px;
+  background-color: #f700ff;
   border-color: black;
   border-width: 5px;
-  color: #178800;
+  /* color: #178800; */
   text-shadow: 2px 1px 1px black;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 1em;
+  color: var(--color);
+  transition: 0.25s;
+  display: block;
 }

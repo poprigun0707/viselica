@@ -366,7 +366,9 @@ const buttons = document.querySelector('.buttons').getElementsByTagName('button'
 const themes = document.querySelector('.themes').getElementsByTagName('button');
 const letter = document.querySelector('.letter');
 const image = document.querySelector('img');
-const restart_button = document.querySelector('.restart_button')
+const restart_button = document.querySelector('.restart').getElementsByTagName('button');
+const word_display = document.querySelector('.word-display')
+const restart_buttons = document.querySelector('.restart')
 function start() {
     function choose_theme(text) {
         if (text.textContent === "Случайная тема") {
@@ -393,8 +395,6 @@ function start() {
         }
     }
     theme_now = ""
-    restart_button.style.display = "none";
-    image.style.display = "none";
     letter.textContent = '';
 }
 
@@ -427,12 +427,12 @@ function game() {
     }
     function win() {
         console.log('Победа')
-        restart_button.textContent = "Вы выиграли! Перезагрузите страницу"
+        restart_button[0].textContent = "Вы выиграли! Перезагрузите страницу"
         restart()
     }
     function lose() {
         console.log('Проигрыш')
-        restart_button.textContent = "Вы проиграли. Перезагрузите страницу"
+        restart_button[0].textContent = "Вы проиграли. Перезагрузите страницу"
         restart()
     }
     function get_restart() {
@@ -450,8 +450,9 @@ function game() {
             buttons[i].style.display = "none"
             }
         }
-        restart_button.style.display = "block";
-        restart_button.addEventListener("click", get_restart);
+        restart_buttons.style.display = "block";
+        restart_button[0].addEventListener("click", get_restart);
+
     }
     for (let i = 0; i < buttons.length; i++) {
         if (buttons[i].tagName === 'BUTTON') {
@@ -470,7 +471,7 @@ function game() {
     column_of_error = 0
     nado = 0
     letter_1 = []
-    image.style.display = "block";
+    word_display.style.display = 'block'
 
     for (let i = 0; i < word.length; i++) {
         letter.textContent = letter.textContent + '_'
